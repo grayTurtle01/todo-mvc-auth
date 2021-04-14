@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  </head>
+  <body>
+     <h3>Welcome <%= name %> </h3>
+    <h1>Todo List</h1>
+    <h3>Tasks Left: <%=tasksLeft%></h3>
+  
+    <form action="/todos/addTask" method="POST">
+      <input name="todo" autofocus placeholder="new task" id="input_task">
+      <button>Add New Task</button>
+    </form>
+
+  
+    <ul>
+      <% for( task of tasks) {%>
+        <li _id=<%=task._id%>>
+          
+          <%if( task.completed == false )  {%>
+            <span><%=task.todo %></span>  
+            <%} else{%>
+              <span class="completed"><%=task.todo %></span>  
+          <%}%>
+          
+          
+          <% if(task.completed == false) {%>
+            <input type="checkbox">
+          <%} else {%>
+            <input type="checkbox" checked>
+          <%} %>
+    
+          <i class="fa fa-trash"></i>
+          <i class="fa fa-edit"></i>
+          
+          <input class="update_input">
+          <button class="update_button">Update</button>
+          
+        </li>
+      <%} %>
+    </ul>
+  
+   
+    <a href="/auth/logout">LogOut</a>
+  
+    <script src="main.js"></script>
+
+  </body>
+</html>

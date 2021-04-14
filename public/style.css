@@ -1,0 +1,16 @@
+.completed{
+  color: lightgray;
+  text-decoration: line-through;
+}
+
+li{
+  font-size: 25px;
+}
+
+.update_input{
+  display: none;
+}
+
+.update_button{
+  display: none;
+}
