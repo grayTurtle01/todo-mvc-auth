@@ -26,7 +26,7 @@ server.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false,
-  store: MongoStore.create({mongoUrl: "mongodb://localhost/todo_mvc_DB"})
+  store: MongoStore.create({mongoUrl: process.env.MONGO_URI})
 }))
 
 //Passport MiddleWares
